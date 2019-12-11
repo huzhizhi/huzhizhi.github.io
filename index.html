@@ -1,62 +1,49 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="format-detection" content="telephone=no">
-		<meta name="format-detection" content="email=no" />
-		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-		<meta http-equiv="pragma" content="no-cache">
-		<meta http-equiv="cache-control" content="no-cache">
-		<meta http-equiv="expires" content="0">
+		<meta charset="utf-8">
 		<title></title>
 		<style>
-			body{
-				background: #F0F0F0;
-				width: 100vw;
-				height: 100vh;
-				margin: 0;
-			}
-			.hujie {
-				width: 100%;
-				height: 20%;
-				
-				background: linear-gradient(#fb3 50%, #58a 50%);
-				background-size: 100% 30px;
-			}
-			.hujie1{
-				/* width: 100%; */
-				height: 20%;
-				
-				padding: 1em;
-				border: 1em solid transparent;
-				background: linear-gradient(white, white) padding-box,
-				repeating-linear-gradient(-45deg,
-				red 0, red 12.5%,
-				transparent 0, transparent 25%,
-				#58a 0, #58a 37.5%,
-				transparent 0, transparent 50%)
-				0 / 5em 5em;
-			}
-			.hujie2{
-				height: 100px;
-				@keyframes ants { to { background-position: 100% } }
-				.marching-ants {
-				padding: 1em;
-				border: 1px solid transparent;
-				background:
-				linear-gradient(white, white) padding-box,
-				repeating-linear-gradient(-45deg,
-				black 0, black 25%, white 0, white 50%
-				) 0 / .6em .6em;
-				animation: ants 12s linear infinite;
-				}
-			}
+			.one-p{color: pink;}
+			.one-p span{color: inherit;}
 		</style>
 	</head>
 	<body>
-		<div class="hujie"></div>
-		<div class="hujie1"></div>
-		<div class="hujie2"></div>
+		<p class="one-p">请输出一个 5 到 10 之间的数字: <a>你好啊</a></p>
+		<input id="demo" type="text">
+		<button type="button" onclick="myFunction()">测试输入</button>
+		<p id="mess"></p>
+
 	</body>
+</html>
+<script type="text/javascript">
+	function myFunction() {
+		try {
+			var x = document.getElementById("demo").value;
+			//取元素的值
+
+			if (x == "") throw "值为空";
+			//根据获取的值， 抛出错误
+			if (isNaN(x)) throw "不是数字";
+			if (x > 10) throw "太大";
+			if (x < 5) throw "太小";
+			
+		} catch (err) {
+			var y = document.getElementById("mess");
+			//抓住上面throw抛出的错误， 给p标签显示
+			y.innerHTML = "错误：" + err + "。";
+		}
+	}
+	
+	let my_arr = ["1",1,2,3,"2",3,'3',1,4];
+	let new_arr = [... new Set(my_arr)]
+	console.log(new_arr)
+	const items = new Set([1, 2, 3, 2])
+	const array = Array.from(items)
+	console.log(array)	// [1, 2, 3]
+	// 或
+	const arr = [...items]
+	console.log(arr)	// [1, 2, 3]
+</script>
+</body>
 </html>
